@@ -1,6 +1,7 @@
 
 import streamlit
 import pandas
+import requests
 
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit') # set the index by fruit and not numbers
@@ -20,10 +21,8 @@ streamlit.text('09.2021 - Bad Love')
 streamlit.text('08.2022 - Gasoline 🍇')
 
 streamlit.header('Fruityvice Fruit Advice!')
-#import requests
-
-#fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-#streamlit.text(fruityvice_response)
+fruityvice_response = requests.get('https://fruityvice.com/api/fruit/watermelon')
+streamlit.text(fruityvice_response)
 
 streamlit.header('Fruit Smoothie')
 
